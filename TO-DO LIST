@@ -1,0 +1,105 @@
+#include<iostream>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+struct task{
+string description;
+bool completed;
+};
+
+vector<task> tasks;
+
+void addtask(){
+string description;
+cout<<"enter task description";
+getline(cin,description);
+tasks.push_back({description,false});
+cout<<"task added successfully";
+void viewtasks(){
+if(tasks.empty()){
+cout<<"No tasks in the list.\n";
+}else{
+for (size_t i=0;i<tasks.size();++i){
+cout<<i+1<<" . "<<(tasks[i].completed ?"completed":"pending")<<endl;
+}
+}
+}
+void marktaskcompleted(){
+viewtasks();
+int index;
+cout<<"Enter task number to mark as completed: ";
+cin>>index;
+cin.ignore();
+if(index>0 && index <=tasks.size()) {
+tasks[index-1].completed=true;
+cout<<"task markedd as completed.\n";
+}else{
+cout<<"invalid task number\n";
+}
+}
+void marktaskcompleted(){
+viewtasks();
+int index;
+cout<<"enter tast number to mark as completed:";
+cin>>index;
+cin.ignore();
+if(index >0 && index<=tasks.size()){
+tasks[index-1].completed=true;
+cout<<"task markes as completed.\n";
+}else{
+cout<<"invalid task number\m";
+}
+}
+
+void removetask(){
+viewtasks();
+int index;
+cout<<"enter task number to remove:";
+cin>>index;
+cin.ignore();
+if(index>0 && index <=tasks.size()){
+cout<<"task '"<<tasks[index-1].description<<"'removed.\n";
+}else{
+cout<<"invalid task number\n";
+}
+}
+
+void main menu(){
+while(true){
+cout<<"\nto-do-list manager\n';
+cout<<"1. add tasks\n";
+cout<<"2.view tassks\n";
+cout<<"3.mark task as completed\n";
+cout<<"4.remove tasks";
+cout<<"5.exit\n";
+cout<<"choose an option(1-5):";
+
+int choice;
+cin>>choice;
+cin.ignore();
+switch(choice){
+case 1:
+addtask();
+break;
+case 2:
+viewtasks();
+break;
+case 3:
+marktaskcompleted;
+break;
+removetask();
+break;
+case 5:
+cout<<"exciting to-do list manager.goodbye!\n"
+return;
+default:
+cout<<"invalid option.please try again\n";
+}
+}
+}
+int main(){
+mainmenu();
+return 0;
+}
